@@ -1,9 +1,18 @@
 ## Describe your changes
 
-## Issue ticket number and link
 
 ## Checklist before requesting a review
-- [ ] I have performed a self-review of my code
-- [ ] If it is a core feature, I have added thorough tests.
-- [ ] Do we need to implement analytics?
-- [ ] Will this be part of a product update? If yes, please write one phrase about this update.
+- Is unit/integration tests verified?
+  - [ ] Not needed
+  - [ ] Done
+- Is deploy-notes.md updated?
+  - [ ] Not needed
+  - [ ] Done
+- [ ] Are migrations supports backward compatibility?
+- Is documentation updated?
+  - Nora Ext. API
+    - [ ] Not needed
+    - [ ] Done
+  - WBS API
+    - [ ] Not Needed
+    - [ ] Done
