@@ -14,5 +14,8 @@ jobs:
     permissions:
       pull-requests: write
     steps:
+      - name: "Check PR Description"
+        uses: ./github/actions/check-pr-desc
+        
       - name: Check tasklist
         uses: Awayume/github-pr-tasklist-checker@v1

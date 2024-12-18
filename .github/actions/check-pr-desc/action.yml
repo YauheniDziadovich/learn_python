@@ -1,0 +1,5 @@
+name: "Check PR Description"
+description: "Check that PR description is not empty"
+runs:
+  using: "node16"
+  main: "index.js"
