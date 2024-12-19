@@ -18,7 +18,7 @@ try {
     core.setOutput("pr_desc");
     core.info("PR description is filled.");
   } else {
-    const comment = await octokit.rest.issues.createComment({
+    octokit.rest.issues.createComment({
       owner: context.repo.owner,
       repo: context.repo.repo,
       issue_number: context.issue.number,
