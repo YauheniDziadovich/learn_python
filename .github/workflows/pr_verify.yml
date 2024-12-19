@@ -22,6 +22,8 @@ jobs:
 
       - name: "Check PR Assignee"
         uses: ./.github/actions/check-pr-assignee
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         
       - name: Check tasklist
         uses: Awayume/github-pr-tasklist-checker@v1
