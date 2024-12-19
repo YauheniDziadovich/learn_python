@@ -19,7 +19,6 @@ try {
   } else {
     core.setFailed("PR description is not filled!")
   }
-  console.log(`The event payload: ${payload}`);
 } catch (error) {
   core.setFailed(error.message);
 }
