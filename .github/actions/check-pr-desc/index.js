@@ -22,7 +22,7 @@ try {
         console.log("context.token " + context.token);
         console.log("core.getinput " + core.getInput('github_token'));
 
-    context.token = core.getInput('github_token');
+    context.token = github_token
 
     report.send(context, "PR description is not filled!");
     core.setFailed("PR description is not filled!")
