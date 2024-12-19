@@ -1,6 +1,6 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
-const { Octokit } = require("@octokit/rest");
+const { Octokit } = require("@octokit/core");
 
 
 try {
@@ -18,12 +18,15 @@ try {
     core.setOutput("pr_desc");
     core.info("PR description is filled.");
   } else {
-    octokit.rest.issues.createComment({
-      owner: context.repo.owner,
-      repo: context.repo.repo,
-      issue_number: context.issue.number,
-      body: "PR description is not filled!"
-    });
+    octokit.request(
+      'POST /repos/{owner}/{repo}/issues/{issue_number}/comments',
+      {
+        owner: context.repo.owner,
+        repo: context.repo.repo,
+        issue_number: context.issue.number,
+        body: "PR description is not filled!"
+      }
+    );
     core.setFailed("PR description is not filled!")
   }
 } catch (error) {
