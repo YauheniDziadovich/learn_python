@@ -9,9 +9,9 @@ try {
   const pr_desc = pr_body.substring(
     pr_body.indexOf("## Describe your changes") + "## Describe your changes".length,
     pr_body.indexOf("## Checklist before requesting a review")
-  );
+  ).trim();
 
-  console.log(`PR descr: ${pr_desc}`);
+  console.log(`PR descr: ${pr_desc}, length: ${pr_body.length}`);
 
   if (pr_desc) {
     core.setOutput("pr_desc");
