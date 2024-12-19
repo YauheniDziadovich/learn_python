@@ -14,6 +14,9 @@ jobs:
     permissions:
       pull-requests: write
     steps:
+      - name: "Checkout repo..."
+        uses: actions/checkout@v3
+      
       - name: "Check PR Description"
         uses: ./github/actions/check-pr-desc
         
