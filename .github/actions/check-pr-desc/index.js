@@ -17,10 +17,10 @@ try {
   } else {
 
     const context = github.context;
-    // const github_token = process.env.GITHUB_TOKEN;
-    //     console.log("github_token " + github_token);
-    //     console.log("context.token " + context.token);
-    //     console.log("core.getinput " + core.getInput('github_token'));
+    const github_token = process.env.GITHUB_TOKEN;
+        console.log("github_token " + github_token);
+        console.log("context.token " + context.token);
+        console.log("core.getinput " + core.getInput('github_token'));
 
     context.token = core.getInput('github_token');
 
