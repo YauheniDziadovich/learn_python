@@ -1,6 +1,6 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
-const report = require('./report');
+const report = require('./report_utils/report');
 
 try {
   const pr_props = github.context.payload.pull_request;
@@ -19,7 +19,7 @@ try {
     console.log("context.token " + context.token);
     console.log("core.getinput " + core.getInput('github_token'));
     
-    context.token = github_token;
+    context.token = core.getInput('github_token');
 
     report.send(context, "PR assignee is empty.");
     
