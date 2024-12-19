@@ -2,9 +2,9 @@ const core = require('@actions/core');
 const github = require('@actions/github');
 
 try {
-  const pr_body = github.context.payload.pull_request.body;
-  const assignees = pr_body.assignees;
-  const assignee = pr_body.assignee;
+  const pr_props = github.context.payload.pull_request;
+  const assignees = pr_props.assignees;
+  const assignee = pr_props.assignee;
   
   console.log("assignees " + assignees);
   console.log("assignee " + assignees);
