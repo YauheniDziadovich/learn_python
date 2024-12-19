@@ -1,14 +1,15 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
-// const { Octokit } = require("@octokit/core");
+const { Octokit } = require("@octokit/core");
 
 
 try {
 
-  const token = process.env.GITHUB_TOKEN;
+  const token = context.token;
 
-  console.log(token);
-  const octokit = new Octokit({ auth: token });
+  console.log("Token: " + token);
+  
+  // const octokit = new Octokit({ auth: token });
 
   const pr_body = github.context.payload.pull_request.body;
   const pr_desc = pr_body.substring(
