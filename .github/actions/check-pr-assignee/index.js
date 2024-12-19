@@ -1,6 +1,6 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
-const report = require('./report_utils/report');
+const report = require('../report_utils/report');
 
 try {
   const pr_props = github.context.payload.pull_request;
