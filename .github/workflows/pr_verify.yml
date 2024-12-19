@@ -21,14 +21,10 @@ jobs:
         uses: ./.github/actions/check-pr-desc
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          
+
       - name: "Check PR Assignee"
         uses: ./.github/actions/check-pr-assignee
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         
       - name: Check tasklist
