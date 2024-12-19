@@ -1,13 +1,13 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
-const { Octokit } = require("@octokit/core");
+// const { Octokit } = require("@octokit/core");
 
 
 try {
 
-  const token = context.token;
+  // const token = context.token;
 
-  console.log("Token: " + token);
+  // console.log("Token: " + token);
   
   // const octokit = new Octokit({ auth: token });
 
