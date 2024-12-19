@@ -17,8 +17,11 @@ try {
     const github_token = process.env.GITHUB_TOKEN;
     console.log("github_token " + github_token);
     console.log("context.token " + context.token);
+    console.log("core.getinput " + core.getInput('github_token'));
     
-    // report.send(context, "PR assignee is empty.");
+    context.token = github_token;
+
+    report.send(context, "PR assignee is empty.");
     
     core.setFailed("PR assignee is empty.")
   }
