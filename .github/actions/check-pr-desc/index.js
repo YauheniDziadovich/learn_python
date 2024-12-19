@@ -11,7 +11,7 @@ try {
     pr_body.indexOf("## Checklist before requesting a review")
   ).trim();
 
-  console.log(`PR descr: ${pr_desc}, length: ${pr_body.length}`);
+  console.log(`PR descr: ${pr_desc}, length: ${pr_desc.length}`);
 
   if (pr_desc) {
     core.setOutput("pr_desc");
