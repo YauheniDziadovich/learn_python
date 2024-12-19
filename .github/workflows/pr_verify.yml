@@ -19,9 +19,6 @@ jobs:
       
       - name: "Check PR Description"
         uses: ./.github/actions/check-pr-desc
-        id: hello
-        with:
-          who-to-greet: 'Mona the Octocat'
         
       - name: Check tasklist
         uses: Awayume/github-pr-tasklist-checker@v1
