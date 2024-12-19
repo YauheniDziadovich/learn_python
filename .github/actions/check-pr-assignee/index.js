@@ -18,7 +18,7 @@ try {
       });
     
     const context = github.context;
-    const response = await octokit.rest.issues.createComment({
+    octokit.rest.issues.createComment({
         owner: context.repo.owner,
         repo: context.repo.repo,
         issue_number: context.issue.number,
