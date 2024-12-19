@@ -15,7 +15,7 @@ try {
   console.log(`The event payload: ${payload}`);
 
 
-  if (assignee || assignees) {
+  if (assignee || (assignees != undefined && assignees.lenght > 0)) {
     core.setOutput("pr_desc");
     core.info("PR assignee is not empty.");
   } else {
