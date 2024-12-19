@@ -15,11 +15,14 @@ try {
     core.setOutput("pr_desc");
     core.info("PR description is filled.");
   } else {
+
+    const github_token = process.env.GITHUB_TOKEN;
+        console.log("github_token " + github_token);
+        console.log("context.token " + context.token);
+        console.log("core.getinput " + core.getInput('github_token'));
+
     const context = github.context;
     context.token = core.getInput('github_token');
-
-    console.log("context token: " + context.token);
-    console.log("context token: " + core.getInput('github_token'));
 
     report.send(context, "PR description is not filled!");
     core.setFailed("PR description is not filled!")
