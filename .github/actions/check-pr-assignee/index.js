@@ -1,7 +1,6 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
-
-const { Octokit } = require("@octokit/rest");
+const report = require('./report');
 
 try {
   const pr_props = github.context.payload.pull_request;
@@ -13,17 +12,8 @@ try {
     core.info("PR assignee is not empty.");
   } else {
 
-    const octokit = new Octokit({
-        auth: process.env.GITHUB_TOKEN
-      });
-    
     const context = github.context;
-    octokit.rest.issues.createComment({
-        owner: context.repo.owner,
-        repo: context.repo.repo,
-        issue_number: context.issue.number,
-        body: "test message",
-    });
+    report.send(context, "PR assignee is empty.");
     core.setFailed("PR assignee is empty.")
   }
 
