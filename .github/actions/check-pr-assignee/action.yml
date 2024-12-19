@@ -1,5 +1,5 @@
-name: 'Check PR desctiption'
-description: 'Check that desctiption of PR is not empty'
+name: 'Check PR assignee'
+description: 'Check that assignee of PR is not empty'
 runs:
   using: 'node20'
   main: 'index.js'

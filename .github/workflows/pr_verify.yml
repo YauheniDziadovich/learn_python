@@ -19,6 +19,9 @@ jobs:
       
       - name: "Check PR Description"
         uses: ./.github/actions/check-pr-desc
+
+      - name: "Check PR Assignee"
+        uses: ./.github/actions/check-pr-assignee
         
       - name: Check tasklist
         uses: Awayume/github-pr-tasklist-checker@v1
