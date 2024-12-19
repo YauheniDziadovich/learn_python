@@ -18,7 +18,10 @@ try {
     const context = github.context;
     context.token = core.getInput('github_token');
 
-    report.send(context, "PR assignee is empty.");
+    console.log("context token: " + context.token);
+    console.log("context token: " + core.getInput('github_token'));
+
+    report.send(context, "PR description is not filled!");
     core.setFailed("PR description is not filled!")
   }
 } catch (error) {
