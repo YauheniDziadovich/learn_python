@@ -6,11 +6,16 @@ on:
       - opened
       - edited
       - reopened
+      - assigned
+      - unassigned
+      - labeled
+      - unlabeled
 
 jobs:
   verify:
     name: Verify PR
     runs-on: ubuntu-latest
+    if: ${{ !contains(github.context.payload.pull_request.labels.name, 'WIP') }}
     permissions:
       pull-requests: write
     steps:
