@@ -19,9 +19,6 @@ jobs:
     permissions:
       pull-requests: write
     steps:
-      - name: Check if label exists
-        run: echo "Label exists"
-
       - name: "Checkout repo..."
         uses: actions/checkout@v3
       
