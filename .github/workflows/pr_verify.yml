@@ -26,7 +26,7 @@ jobs:
         uses: ./.github/actions/check-pr-desc
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          TEST_LABELS: ${{ github.event.pull_request.labels.name }}
+          TEST_LABELS: ${{ github.event.pull_request.labels.*.name }}
 
       - name: "Check PR Assignee"
         uses: ./.github/actions/check-pr-assignee
