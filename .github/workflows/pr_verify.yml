@@ -21,7 +21,13 @@ jobs:
     steps:
       - name: "Checkout repo..."
         uses: actions/checkout@v3
+
+      - name: "Install core dependencies"
+        run: npm install @actions/core
       
+      - name: "Install actions dependencies"
+        run: npm install @actions/github
+
       - name: "Check PR Description"
         uses: ./.github/actions/check-pr-desc
         env:
