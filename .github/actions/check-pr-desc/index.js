@@ -13,7 +13,7 @@ try {
 
   // check pull request title mathes commit message pattern
   const pr_title = pull_request.title.trim();
-  console.log("PR title");
+  console.log("PR title " + pr_title);
   const task_pattern='^((MW)|(KIT)|(STR)|(IN)|(MT)|(DEVOPS)|(CR)|(NF)|(IGP))-[0-9]+\. .+$'
   const release_pattern='^(v[0-9]+\.[0-9]+\.[0-9]+(-rc)?)\. .+$'
   const hotfix_pattern='^(v[0-9]+\.[0-9]+\.[0-9]+) ((MW)|(KIT)|(STR)|(IN)|(MT))-[0-9]+ (Hotfix\. ).+$'
