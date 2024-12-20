@@ -28,16 +28,23 @@ try {
 
   var reg_exp_match = false;
 
-  for (i = 0; i < reg_expressions.length; i++) {
-    var reg_exp = reg_expressions[i];
+  for (let reg_exp in reg_expressions) {
     if (reg_exp.test(pr_title)) {
       reg_exp_match = true;
       break;
     }
   }
 
+  // for (i = 0; i < reg_expressions.length; i++) {
+  //   var reg_exp = reg_expressions[i];
+  //   if (reg_exp.test(pr_title)) {
+  //     reg_exp_match = true;
+  //     break;
+  //   }
+  // }
+
   if (!reg_exp_match) {
-    const error_message = `PR Title is not mutch one of pattern: <br/> + <ul><li>${task_pattern}</li><li>${release_pattern}</li><li>${hotfix_pattern}</li><li>${merge_pattern}</li></ul>`;
+    const error_message = `PR Title non match any of pattern: <ul><li>${task_pattern}</li><li>${release_pattern}</li><li>${hotfix_pattern}</li><li>${merge_pattern}</li></ul>`;
     report.send(context, error_message);
     core.setFailed(error_message);
   }
