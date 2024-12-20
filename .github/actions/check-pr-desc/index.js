@@ -14,21 +14,22 @@ try {
   // check pull request title mathes commit message pattern
   const pr_title = pull_request.title.trim();
   
-  const task_pattern='^((MW)|(KIT)|(STR)|(IN)|(MT)|(DEVOPS)|(CR)|(NF)|(IGP))-[0-9]+\. .+$'
-  const release_pattern='^(v[0-9]+\.[0-9]+\.[0-9]+(-rc)?)\. .+$'
-  const hotfix_pattern='^(v[0-9]+\.[0-9]+\.[0-9]+) ((MW)|(KIT)|(STR)|(IN)|(MT))-[0-9]+ (Hotfix\. ).+$'
-  const merge_pattern='^(Merge ).+$'
+  const task_pattern=/^((MW)|(KIT)|(STR)|(IN)|(MT)|(DEVOPS)|(CR)|(NF)|(IGP))-[0-9]+\. .+$/
+  const release_pattern=/^(v[0-9]+\.[0-9]+\.[0-9]+(-rc)?)\. .+$/
+  const hotfix_pattern=/^(v[0-9]+\.[0-9]+\.[0-9]+) ((MW)|(KIT)|(STR)|(IN)|(MT))-[0-9]+ (Hotfix\. ).+$/
+  const merge_pattern=/^(Merge ).+$/
 
   const reg_expressions = [
-    new RegExp(task_pattern),
-    new RegExp(release_pattern),
-    new RegExp(hotfix_pattern),
-    new RegExp(merge_pattern)
+    task_pattern,
+    release_pattern,
+    hotfix_pattern,
+    merge_pattern
   ]
 
   var reg_exp_match = false;
 
-  for (let reg_exp in reg_expressions) {
+  for (i = 0; i < reg_expressions.length; i++) {
+    var reg_exp = reg_expressions[i];
     if (reg_exp.test(pr_title)) {
       reg_exp_match = true;
       break;
