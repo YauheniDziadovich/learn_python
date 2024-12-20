@@ -8,7 +8,7 @@
 ### Is deploy-notes.md updated?
 - [ ] <!-- Choice#2 --> Not needed
 - [ ] <!-- Choice#2 --> Done
-### Do migrations supports backward compatibility?
+### Are migrations backward compatible?
 - [ ] <!-- Choice#3 --> Sure
 - [ ] <!-- Choice#3 --> There are no migrations
 ### Is documentation updated?
