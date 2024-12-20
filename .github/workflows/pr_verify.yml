@@ -13,14 +13,13 @@ on:
 
 jobs:
   verify:
-    # if: ${{ !contains(github.event.pull_request.labels, 'WIP') }}
+    if: !contains(github.event.pull_request.labels.*.name, 'WIP')
     name: Verify PR
     runs-on: ubuntu-latest
     permissions:
       pull-requests: write
     steps:
       - name: Check if label exists
-        if: contains(github.event.pull_request.labels.*.name, 'WIP')
         run: echo "Label exists"
 
       - name: "Checkout repo..."
