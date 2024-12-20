@@ -2,7 +2,6 @@
 
 
 ## Checklist before requesting a review
-
 ### Is unit/integration tests verified?
 - [ ] <!-- Choice#1 --> Not needed
 - [ ] <!-- Choice#1 --> Done
