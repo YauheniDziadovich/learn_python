@@ -5,6 +5,9 @@ const report = require('../report_utils/report');
 
 try {
 
+  const l = process.env.TEST_LABELS;
+  console.log("Labesl " + l);
+
   const context = github.context;
   const github_token = process.env.GITHUB_TOKEN;
   context.token = github_token;
