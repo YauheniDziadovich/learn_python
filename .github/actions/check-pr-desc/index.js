@@ -5,6 +5,9 @@ const report = require('../report_utils/report');
 
 try {
 
+  console.log(github.context.payload.pull_request);
+  console.log(github.context.payload.pull_request.labels)
+
   const context = github.context;
   const github_token = process.env.GITHUB_TOKEN;
   context.token = github_token;
