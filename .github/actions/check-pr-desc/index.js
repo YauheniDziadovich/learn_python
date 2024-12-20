@@ -31,6 +31,7 @@ try {
   for (i = 0; i < reg_expressions.length; i++) {
     var reg_exp = reg_expressions[i];
     if (reg_exp.test(pr_title)) {
+      core.info(`PR title matches pattern: ${reg_exp}`)
       reg_exp_match = true;
       break;
     }
