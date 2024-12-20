@@ -13,7 +13,6 @@ on:
 
 jobs:
   verify:
-    if: !contains(github.event.pull_request.labels.*.name, 'WIP')
     name: Verify PR
     runs-on: ubuntu-latest
     permissions:
