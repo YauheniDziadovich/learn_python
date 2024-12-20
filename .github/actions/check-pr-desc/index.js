@@ -13,13 +13,33 @@ try {
 
   // check pull request title mathes commit message pattern
   const pr_title = pull_request.title.trim();
-  console.log("PR title " + pr_title);
+  
   const task_pattern='^((MW)|(KIT)|(STR)|(IN)|(MT)|(DEVOPS)|(CR)|(NF)|(IGP))-[0-9]+\. .+$'
   const release_pattern='^(v[0-9]+\.[0-9]+\.[0-9]+(-rc)?)\. .+$'
   const hotfix_pattern='^(v[0-9]+\.[0-9]+\.[0-9]+) ((MW)|(KIT)|(STR)|(IN)|(MT))-[0-9]+ (Hotfix\. ).+$'
   const merge_pattern='^(Merge ).+$'
 
+  const reg_expressions = [
+    new RegExp(task_pattern),
+    new RegExp(release_pattern),
+    new RegExp(hotfix_pattern),
+    new RegExp(merge_pattern)
+  ]
 
+  var reg_exp_match = false;
+
+  for (let reg_exp in reg_expressions) {
+    if (reg_exp.test(pr_title)) {
+      reg_exp_match = true;
+      break;
+    }
+  }
+
+  if (!reg_exp_match) {
+    const error_message = `PR Title is not mutch one of pattern: <br/> + <ul><li>${task_pattern}</li><li>${release_pattern}</li><li>${hotfix_pattern}</li><li>${merge_pattern}</li></ul>`;
+    report.send(context, error_message);
+    core.setFailed(error_message);
+  }
 
   // check pull request description is not empty
   const pr_body = pull_request.body;
@@ -32,8 +52,9 @@ try {
     core.setOutput("pr_desc");
     core.info("PR description is filled.");
   } else {
-    report.send(context, "PR description is not filled!");
-    core.setFailed("PR description is not filled!");
+    const error_message = "PR description is not filled!"
+    report.send(context, error_message);
+    core.setFailed(error_message);
   }
 } catch (error) {
   core.setFailed(error.message);
