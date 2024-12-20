@@ -5,9 +5,6 @@ const report = require('../report_utils/report');
 
 try {
 
-  const l = process.env.TEST_LABELS;
-  console.log("Labesl " + l);
-
   const context = github.context;
   const github_token = process.env.GITHUB_TOKEN;
   context.token = github_token;
@@ -20,7 +17,7 @@ try {
   const task_pattern=/^((MW)|(KIT)|(STR)|(IN)|(MT)|(DEVOPS)|(CR)|(NF)|(IGP))-[0-9]+\. .+$/
   const release_pattern=/^(v[0-9]+\.[0-9]+\.[0-9]+(-rc)?)\. .+$/
   const hotfix_pattern=/^(v[0-9]+\.[0-9]+\.[0-9]+) ((MW)|(KIT)|(STR)|(IN)|(MT))-[0-9]+ (Hotfix\. ).+$/
-  const merge_pattern=/^(Merge ).+$/
+  const merge_pattern=/^(Merge ).+$/S
 
   const reg_expressions = [
     task_pattern,
